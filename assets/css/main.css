@@ -1,0 +1,45 @@
+/* assets/css/main.css */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid #ccc;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.collection-item, .painting-item {
+  text-align: center;
+}
+
+.collection-item img, .painting-item img {
+  max-width: 100%;
+  height: auto;
+}

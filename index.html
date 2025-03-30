@@ -1,0 +1,15 @@
+<!-- index.html -->
+---
+layout: default
+---
+
+<main class="grid-container">
+  {% for collection in site.collections %}
+    <div class="collection-item">
+      <h2>{{ collection.title }}</h2>
+      <a href="{{ collection.url | relative_url }}">
+        <img src="{{ collection.image | relative_url }}" alt="{{ collection.title }}">
+      </a>
+    </div>
+  {% endfor %}
+</main>

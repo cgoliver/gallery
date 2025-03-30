@@ -1,0 +1,42 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+  {% include header.html %}
+  {{ content }}
+  {% include footer.html %}
+  <script src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
+  <script>
+    var client = ShopifyBuy.buildClient({
+      domain: 'your-store.myshopify.com',
+      storefrontAccessToken: 'your-storefront-access-token'
+    });
+    
+    var ui = ShopifyBuy.UI.init(client);
+
+    document.querySelectorAll('.shopify-buy-button').forEach(function(button) {
+      ui.createComponent('product', {
+        id: button.dataset.variantId,
+        node: button,
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+          product: {
+            buttonDestination: 'checkout',
+            contents: {
+              img: false,
+              title: false,
+              price: false
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
