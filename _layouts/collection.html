@@ -1,14 +1,13 @@
-<!-- _layouts/collection.html -->
 ---
 layout: default
 ---
-
-<h1>{{ page.title }}</h1>
-<div class="grid-container">
-  {% for painting in page.paintings %}
-    <div class="painting-item">
-      <a href="{{ painting.url | relative_url }}">
-        <img src="{{ painting.image | relative_url }}" alt="{{ painting.title }}">
+<h2>{{ page.title }}</h2>
+<div class="gallery">
+  {% for item in page.collection_items %}
+    <div class="artwork">
+      <a href="{{ item.url }}">
+        <img src="{{ item.image }}" alt="{{ item.title }}">
+        <p>{{ item.title }}</p>
       </a>
     </div>
   {% endfor %}
